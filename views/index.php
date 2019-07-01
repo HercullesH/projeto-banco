@@ -103,18 +103,18 @@
         <section class="container">
 
         <div class="row">
-          <div class="col-md-2">Pergunta 1 EXEMPLO</div>
-          <div class="col-md-2">Pergunta 2</div>
-          <div class="col-md-2">Pergunta 3</div>
+          <div class="col-md-2">Pergunta 1 a fácil</div>
+          <div class="col-md-2">Pergunta 1.1</div>
+          <div class="col-md-2">Pergunta 1.2</div>
           <div class="col-md-2">Pergunta 4</div>
           <div class="col-md-2">Pergunta 5</div>
 
         </div>
 
         <div class="row">
-          <div class="col-md-2"><a href="p1.php?1" class="btn btn-success">entrar</a></div>
-          <div class="col-md-2"><a href="p2.php" class="btn btn-success">entrar</a></div>
-          <div class="col-md-2"><a href="p3.php" class="btn btn-success">entrar</a></div>
+          <div class="col-md-2"><a href="p1.php?1?PE" class="btn btn-success">entrar</a></div>
+          <div class="col-md-2"><a href="p2.php?1?-1?-1" class="btn btn-success">entrar</a></div>
+          <div class="col-md-2"><a href="p3.php?1?-1?-1" class="btn btn-success">entrar</a></div>
           <div class="col-md-2"><a href="p4.php" class="btn btn-success">entrar</a></div>
           <div class="col-md-2"><a href="p5.php" class="btn btn-success">entrar</a></div>
         </div>

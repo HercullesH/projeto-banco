@@ -32,7 +32,7 @@
     <title>Alunos</title>
 
     
-    <script src="../js/p1.js">
+    <script src="../js/p3.js">
 
     </script>
     <script src="../js/igorescobar-jQuery-Mask-Plugin-2c1f36f/jquery.mask.js">
@@ -67,7 +67,19 @@
         
         <div class="row">
 
-        <div class="col-md-4"></div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Quantidade inicial</label>
+            <input type="number" class="form-control" id="qtdInicial" placeholder="Example input">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+           <div class="form-group">
+            <label for="formGroupExampleInput">Quantidade final</label>
+            <input type="number" class="form-control" id="qtdFinal" placeholder="Example input">
+        </div>
+        </div>
 
           <div class="col-md-3">
             <form>
