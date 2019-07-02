@@ -1,16 +1,15 @@
 $(document).ready(function(){
-    deputados();
     buscar();
     listar();
 });
 function buscar(){
 
     $('#buscar').click(function(){
-        var qtdInicial = $('#qtdInicial').val();
+        var qtdInicial = $('#dataInicial').val();
         if(qtdInicial == ""){
             qtdInicial = '-1';
         }
-        var qtdFinal = $('#qtdFinal').val();
+        var qtdFinal = $('#dataFinal').val();
         if(qtdFinal == ""){
             qtdFinal = '-1';
         }
@@ -23,41 +22,25 @@ function buscar(){
         if(valorFinal == ""){
             valorFinal = '-1';
         }
-
-        var deputado = document.getElementById("deputado").value;
         var url = window.location.href;
         var pagina = url.split("?")[1];
-        window.location.href = 'p2.php?1?'+qtdInicial+'?'+qtdFinal+'?'+deputado+'?'+valorInicial+'?'+valorFinal+'';
+        window.location.href = 'p4.php?1?'+qtdInicial+'?'+qtdFinal+'?'+valorInicial+'?'+valorFinal+'';
     });
 
-}
-
-function deputados(){
-    $.ajax({
-        url: '../php/perguntas/deputados.php',
-        method: 'post',
-        data: {},
-        success: function(data){
-            $('#deputados').html(data);
-            
-    }
-});
 }
 
 function listar(){
     var url = window.location.href;
     var pagina = url.split("?")[1];
-    var qtdInicial = url.split("?")[2];
-    var qtdFinal = url.split("?")[3];
-    var deputado = url.split("?")[4];
-    var valorInicial = url.split("?")[5];
-    var valorFinal = url.split("?")[6];
+    var dataInicial = url.split("?")[2];
+    var dataFinal = url.split("?")[3];
+    var valorInicial = url.split("?")[4];
+    var valorFinal = url.split("?")[5];
     $.ajax({
-        url: '../php/perguntas/p2.listar.php',
+        url: '../php/perguntas/p4.listar.php',
         method: 'post',
-        data: {pagina: pagina,qtdInicial:qtdInicial,qtdFinal:qtdFinal,deputado:deputado,valorInicial:valorInicial,valorFinal:valorFinal},
+        data: {pagina: pagina,dataInicial:dataInicial,dataFinal:dataFinal,valorInicial:valorInicial,valorFinal:valorFinal},
         success: function(data){
-            deputados();
             $('#lista').html(data);
             
     }

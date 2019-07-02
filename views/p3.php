@@ -41,7 +41,7 @@
 
 
   </head>
-  <body>
+  <body style="background:#212529;">
       <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
       <div class="container">
         <a href="index.html" class="navbar-brand logo" ></a>
@@ -63,71 +63,51 @@
       </div>
   </nav>
     <div class="margem-navbar">
-        <section class="container">
+        <section class="container" style="background:#F2F2F2;height : 1000px; border-radius:50px;padding:50px;">
         
         <div class="row">
 
         <div class="col-md-2">
           <div class="form-group">
             <label for="formGroupExampleInput">Quantidade inicial</label>
-            <input type="number" class="form-control" id="qtdInicial" placeholder="Example input">
+            <input type="number" class="form-control" id="qtdInicial" placeholder="EX: 1" style="background:#FAFAFA;">
           </div>
         </div>
 
         <div class="col-md-2">
            <div class="form-group">
             <label for="formGroupExampleInput">Quantidade final</label>
-            <input type="number" class="form-control" id="qtdFinal" placeholder="Example input">
+            <input type="number" class="form-control" id="qtdFinal" placeholder="EX: 50" style="background:#FAFAFA;">
         </div>
         </div>
 
-          <div class="col-md-3">
-            <form>
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Example select</label>
-                  <select class="form-control" id="estado">
-                  <option value="AC">Acre</option>
-                  <option value="AL">Alagoas</option>
-                  <option value="AP">Amapá</option>
-                  <option value="AM">Amazonas</option>
-                  <option value="BA">Bahia</option>
-                  <option value="CE">Ceará</option>
-                  <option value="DF">Distrito Federal</option>
-                  <option value="ES">Espírito Santo</option>
-                  <option value="GO">Goiás</option>
-                  <option value="MA">Maranhão</option>
-                  <option value="MT">Mato Grosso</option>
-                  <option value="MS">Mato Grosso do Sul</option>
-                  <option value="MG">Minas Gerais</option>
-                  <option value="PA">Pará</option>
-                  <option value="PB">Paraíba</option>
-                  <option value="PR">Paraná</option>
-                  <option value="PE">Pernambuco</option>
-                  <option value="PI">Piauí</option>
-                  <option value="RJ">Rio de Janeiro</option>
-                  <option value="RN">Rio Grande do Norte</option>
-                  <option value="RS">Rio Grande do Sul</option>
-                  <option value="RO">Rondônia</option>
-                  <option value="RR">Roraima</option>
-                  <option value="SC">Santa Catarina</option>
-                  <option value="SP">São Paulo</option>
-                  <option value="SE">Sergipe</option>
-                  <option value="TO">Tocantins</option>
-                </select>
-            </div>
-            </form>
+        <div class="col-md-2">
+          <div class="form-group">
+          <label for="formGroupExampleInput">Valor inicial</label>
+            <input type="number" class="form-control" id="valorInicial" placeholder="Valor inicial" style="background:#FAFAFA;">
           </div>
+        </div>
+
+        <div class="col-md-2">
+           <div class="form-group">
+           <label for="formGroupExampleInput">Valor final</label>
+            <input type="number" class="form-control" id="valorFinal" placeholder="Valor final" style="background:#FAFAFA;">
+        </div>
+
+        
 
         </div>
         <div class="row"style="margin-bottom: 30px;">
-          <div class="col-md-5"></div>
+          
             <div class="col-md-1"> 
-              <a class="btn btn-success" id="buscar">BUSCAR</a>
+            <label for="formGroupExampleInput"></label>
+              <a class="btn btn-danger" id="buscar">BUSCAR</a>
             </div>
           </div>
-        <div id="lista">
 
         </div>
+        
+        <div id="lista">  
         
         </section>
     </div>

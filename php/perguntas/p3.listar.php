@@ -3,7 +3,7 @@
 require_once('../../classes/Database.class.php');
 require_once('../../classes/Paginacao.class.php');
 require_once('../../classes/P3.class.php');
-function listar($qtdInicial,$qtdFinal,$pagina){
+function listar($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal){
     $paginacao = new Paginacao();
     $db = new Db();
     $link = $db->conecta_mysql();
@@ -16,12 +16,14 @@ function listar($qtdInicial,$qtdFinal,$pagina){
     // if (isset($filtro)){
     //     $sql. = "AND idade > 15";
     // }
-    $paginacao->paginarP3($qtdInicial,$qtdFinal,$pagina,'f.nome');
+    $paginacao->paginarP3($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal);
     return $paginacao;
 }
 // pelo amor de Deus nao toque nessa parte
 $qtdInicial = $_POST['qtdInicial'];
 $qtdFinal = $_POST['qtdFinal'];
+$valorInicial = $_POST['valorInicial'];
+$valorFinal = $_POST['valorFinal'];
 $pagina = $_POST['pagina'];
 
 $proximo = $pagina +1;
@@ -29,13 +31,13 @@ $anterior = $pagina -1;
 
 echo '<div class="row">';
 if($pagina == 1){
-    $paginacao = listar($qtdInicial,$qtdFinal,$pagina);
+    $paginacao = listar($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal);
     $inicio = $paginacao->inicio;
     $fim = $paginacao->fim;
     echo '<div class="col-md-4" > </div> <div class="col-md-4">A consulta retornou '.$paginacao->totalDados.' registros.</div>';
     if($paginacao->totalDados > 10){
         if ($paginacao->existeDados == True){
-            echo '<div class="col-md-4"><a href="p3.php?'.$proximo.'?'.$qtdInicial.'?'.$qtdFinal.'" class="btn btn-success"> >> </a></div>';
+            echo '<div class="col-md-4"><a href="p3.php?'.$proximo.'?'.$qtdInicial.'?'.$qtdFinal.'?'.$valorInicial.'?'.$valorFinal.'" class="btn btn-danger"> >> </a></div>';
         }
 
     }
@@ -44,16 +46,16 @@ if($pagina == 1){
     
 } else{
 
-    $paginacao = listar($qtdInicial,$qtdFinal,$pagina);
+    $paginacao = listar($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal);
     $inicio = $paginacao->inicio;
     $fim = $paginacao->fim;
 
-    echo '<div class="col-md-4"><a href="p3.php?'.$anterior.'?'.$qtdInicial.'?'.$qtdFinal.'" class="btn btn-success"> << </a></div>';
+    echo '<div class="col-md-4"><a href="p3.php?'.$anterior.'?'.$qtdInicial.'?'.$qtdFinal.'?'.$valorInicial.'?'.$valorFinal.'" class="btn btn-danger"> << </a></div>';
 
     echo '<div class="col-md-4">A consulta retornou '.$paginacao->totalDados.' registros</div>';
     $paginacao = listar($qtdInicial,$qtdFinal,$proximo);
     if ($paginacao->existeDados == True){
-        echo '<div class="col-md-4"><a href="p3.php?'.$proximo .'?'.$qtdInicial.'?'.$qtdFinal.'" class="btn btn-success"> >> </a></div>';
+        echo '<div class="col-md-4"><a href="p3.php?'.$proximo .'?'.$qtdInicial.'?'.$qtdFinal.'?'.$valorInicial.'?'.$valorFinal.'" class="btn btn-danger"> >> </a></div>';
     }
     else{
         $fim = $paginacao->totalDados;
@@ -63,7 +65,7 @@ if($pagina == 1){
 }
 echo '</div>';
 echo '<div class = "row"><div class = "col-md-4"></div><div class = "col-md-4">Listando de '.$inicio.' a '.$fim.'</div><div class = "col-md-4"></div></div>';
-$paginacao = listar($qtdInicial,$qtdFinal,$pagina);
+$paginacao = listar($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal);
 
 echo '<table class="table table-striped table-dark" style="margin-top:15px;">
         <thead>
@@ -82,7 +84,7 @@ if($paginacao->totalDados > 0){
         echo '<tr>
             <th scope="row">'.(string) $cont.'</th>
             <td>'.$dado->partido.'</td>
-            <td>'.$dado->valor.'</td>
+            <td>R$ '.$dado->valor.'</td>
             <td>'.$dado->quantidade.'</td>
             </tr>';
     }
