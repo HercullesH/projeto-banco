@@ -41,7 +41,7 @@
 
 
   </head>
-  <body>
+  <body style="background:#212529;">
       <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
       <div class="container">
         <a href="index.html" class="navbar-brand logo" ></a>
@@ -50,73 +50,28 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="biblioteca">
-          <ul class="navbar-nav mr-auto">
-
-          </ul>
-
-          <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
-                <li class="dropdown order-1 <?= $erro == 1 ? 'show' : '' ?>">
-                    <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle" >Login <span class="caret"></span></button>
-                    <ul class="dropdown-menu dropdown-menu-right mt-2 <?= $erro == 1 ? 'show' : '' ?>">
-                       <li class="px-3 py-2">
-                           <form class="form" role="form" method="post" action="../php/valida_login.php">
-                                <div class="form-group">
-                                    <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="text" required="Preencha o campo de email" name="email">
-                                </div>
-                                <div class="form-group">
-                                    <input id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="Preencha o campo de senha" name="senha">
-                                </div>
-                                <div class="form-group">
-                                  <select class="custom-select" id="tipoConta" name="tipo_conta">
-                                    <option selected value="">Tipo</option>
-                                    <option value="1">Aluno</option>
-                                    <option value="2">Professor</option>
-                                    <option value="3">Funcionário</option>
-                                  </select>
-                                </div>
-                              
-                                <div class="form-group">
-                                    <button id="btn_logar" type="submit" class="btn btn-primary btn-block">Login</button>
-                                </div>
-
-                                <?php
-                                  if($erro == 1){
-                                    echo '<font color="#FF0000">Usuário e ou senha inválido(s)</font>';
-                                  }
-                                ?>
-                                
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-
         
-
-      </div>
+        
   </nav>
   </div>
     <div class="margem-navbar">
-        <section class="container">
+        <section class="container" style="background:#F2F2F2;height : 1000px; border-radius:50px;padding:50px;">
 
         <div class="row">
-          <div class="col-md-2">Pergunta 1 EXEMPLO</div>
-          <div class="col-md-2">Pergunta 2</div>
-          <div class="col-md-2">Pergunta 3</div>
-          <div class="col-md-2">Pergunta 4</div>
-          <div class="col-md-2">Pergunta 5</div>
+        <div class="col-md-2"></div>
+          <div class="col-md-2">Consulta 1</div>
+          <div class="col-md-2">Consulta 2</div>
+          <div class="col-md-2">Consulta 3</div>
+          <div class="col-md-2">Consulta 4</div>
 
         </div>
 
         <div class="row">
-          <div class="col-md-2"><a href="p1.php?1" class="btn btn-success">entrar</a></div>
-          <div class="col-md-2"><a href="p2.php" class="btn btn-success">entrar</a></div>
-          <div class="col-md-2"><a href="p3.php" class="btn btn-success">entrar</a></div>
-          <div class="col-md-2"><a href="p4.php" class="btn btn-success">entrar</a></div>
-          <div class="col-md-2"><a href="p5.php" class="btn btn-success">entrar</a></div>
+        <div class="col-md-2"></div>
+          <div class="col-md-2"><a href="p2.php?1?-1?-1?TODOS?-1?-1" class="btn btn-danger">entrar</a></div>
+          <div class="col-md-2"><a href="p1.php?1?PE?-1?-1" class="btn btn-danger">entrar</a></div>
+          <div class="col-md-2"><a href="p3.php?1?-1?-1?-1?-1" class="btn btn-danger">entrar</a></div>
+          <div class="col-md-2"><a href="p4.php?1?-1?-1?-1?-1" class="btn btn-danger">entrar</a></div>
         </div>
 
         </section>

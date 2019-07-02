@@ -2,9 +2,8 @@
 
 require_once('../../classes/Database.class.php');
 require_once('../../classes/Paginacao.class.php');
-require_once('../../classes/P1.class.php');
-
-function listar($estado,$pagina,$qtdInicial,$qtdFinal){
+require_once('../../classes/P4.class.php');
+function listar($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal){
     $paginacao = new Paginacao();
     $db = new Db();
     $link = $db->conecta_mysql();
@@ -17,44 +16,46 @@ function listar($estado,$pagina,$qtdInicial,$qtdFinal){
     // if (isset($filtro)){
     //     $sql. = "AND idade > 15";
     // }
-    $paginacao->paginarP1($estado,$pagina,'f.nome',$qtdInicial,$qtdFinal);
+    $paginacao->paginarP4($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal,'f.nome');
     return $paginacao;
 }
 // pelo amor de Deus nao toque nessa parte
-$estado = $_POST['estado'];
+$qtdInicial = $_POST['dataInicial'];
+$qtdFinal = $_POST['dataFinal'];
+$valorInicial = $_POST['valorInicial'];
+$valorFinal = $_POST['valorFinal'];
 $pagina = $_POST['pagina'];
-$qtdInicial = $_POST['qtdInicial'];
-$qtdFinal = $_POST['qtdFinal'];
-
-
 
 $proximo = $pagina +1;
 $anterior = $pagina -1;
 
 echo '<div class="row">';
 if($pagina == 1){
-    $paginacao = listar($estado,$pagina,$qtdInicial,$qtdFinal);
+    $paginacao = listar($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal);
     $inicio = $paginacao->inicio;
     $fim = $paginacao->fim;
-
     echo '<div class="col-md-4" > </div> <div class="col-md-4">A consulta retornou '.$paginacao->totalDados.' registros.</div>';
+    if($paginacao->totalDados > 10){
+        if ($paginacao->existeDados == True){
+            echo '<div class="col-md-4"><a href="p3.php?'.$proximo.'?'.$qtdInicial.'?'.$qtdFinal.'" class="btn btn-danger"> >> </a></div>';
+        }
 
-    if ($paginacao->totalDados > 10){
-        echo '<div class="col-md-4"><a href="p1.php?'.$proximo.'?'.$estado.'?'.$qtdInicial.'?'.$qtdFinal.'" class="btn btn-danger"> >> </a></div>';
     }
+
+
     
 } else{
 
-    $paginacao = listar($estado,$pagina,$qtdInicial,$qtdFinal);
+    $paginacao = listar($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal);
     $inicio = $paginacao->inicio;
     $fim = $paginacao->fim;
 
-    echo '<div class="col-md-4"><a href="p1.php?'.$anterior.'?'.$estado.'?'.$qtdInicial.'?'.$qtdFinal.'" class="btn btn-danger"> << </a></div>';
+    echo '<div class="col-md-4"><a href="p3.php?'.$anterior.'?'.$qtdInicial.'?'.$qtdFinal.'" class="btn btn-danger"> << </a></div>';
 
     echo '<div class="col-md-4">A consulta retornou '.$paginacao->totalDados.' registros</div>';
-    $paginacao = listar($estado,$proximo,$qtdInicial,$qtdFinal);
+    $paginacao = listar($qtdInicial,$qtdFinal,$proximo);
     if ($paginacao->existeDados == True){
-        echo '<div class="col-md-4"><a href="p1.php?'.$proximo .'?'.$estado.'?'.$qtdInicial.'?'.$qtdFinal.'" class="btn btn-danger"> >> </a></div>';
+        echo '<div class="col-md-4"><a href="p3.php?'.$proximo .'?'.$qtdInicial.'?'.$qtdFinal.'" class="btn btn-danger"> >> </a></div>';
     }
     else{
         $fim = $paginacao->totalDados;
@@ -64,14 +65,14 @@ if($pagina == 1){
 }
 echo '</div>';
 echo '<div class = "row"><div class = "col-md-4"></div><div class = "col-md-4">Listando de '.$inicio.' a '.$fim.'</div><div class = "col-md-4"></div></div>';
-$paginacao = listar($estado,$pagina,$qtdInicial,$qtdFinal);
+$paginacao = listar($qtdInicial,$qtdFinal,$pagina,$valorInicial,$valorFinal);
 
 echo '<table class="table table-striped table-dark" style="margin-top:15px;">
         <thead>
         <tr>
         <th scope="col">#</th>
-        <th scope="col">Nome do fornecedor</th>
-        <th scope="col">Quantidade de serviços</th>
+        <th scope="col">Partido</th>
+        <th scope="col">Valor gasto</th>
         </tr>
     </thead>
     <tbody>';
@@ -81,8 +82,8 @@ if($paginacao->totalDados > 0){
         $cont += 1;
         echo '<tr>
             <th scope="row">'.(string) $cont.'</th>
-            <td>'.$dado->nome_fornecedor.'</td>
-            <td>'.$dado->quantidade_servicos.'</td>
+            <td>'.$dado->partido.'</td>
+            <td>R$ '.$dado->valor.'</td>
             </tr>';
     }
 }

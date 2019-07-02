@@ -32,7 +32,7 @@
     <title>Alunos</title>
 
     
-    <script src="../js/p1.js">
+    <script src="../js/p2.js">
 
     </script>
     <script src="../js/igorescobar-jQuery-Mask-Plugin-2c1f36f/jquery.mask.js">
@@ -67,67 +67,44 @@
         
         <div class="row">
 
-        
-
-        <div class="col-md-2"><div class="form-group">
+        <div class="col-md-2">
+          <div class="form-group">
             <label for="formGroupExampleInput">Quantidade inicial</label>
-            <input type="number" class="form-control" id="qtdInicial" placeholder="EX: 1" style="background:#FAFAFA;">
-        </div></div>
-
-        <div class="col-md-2"> <div class="form-group">
-            <label for="formGroupExampleInput">Quantidade final</label>
-            <input type="number" class="form-control" id="qtdFinal" placeholder="EX: 84" style="background:#FAFAFA;">
-        </div> </div>
-
-          <div class="col-md-3">
-            <form>
-              <div class="form-group" >
-                <label for="exampleFormControlSelect1">Estado</label>
-                  <select class="form-control" id="estado">
-                  <option value="AC">Acre</option>
-                  <option value="AL">Alagoas</option>
-                  <option value="AP">Amapá</option>
-                  <option value="AM">Amazonas</option>
-                  <option value="BA">Bahia</option>
-                  <option value="CE">Ceará</option>
-                  <option value="DF">Distrito Federal</option>
-                  <option value="ES">Espírito Santo</option>
-                  <option value="GO">Goiás</option>
-                  <option value="MA">Maranhão</option>
-                  <option value="MT">Mato Grosso</option>
-                  <option value="MS">Mato Grosso do Sul</option>
-                  <option value="MG">Minas Gerais</option>
-                  <option value="PA">Pará</option>
-                  <option value="PB">Paraíba</option>
-                  <option value="PR">Paraná</option>
-                  <option value="PE">Pernambuco</option>
-                  <option value="PI">Piauí</option>
-                  <option value="RJ">Rio de Janeiro</option>
-                  <option value="RN">Rio Grande do Norte</option>
-                  <option value="RS">Rio Grande do Sul</option>
-                  <option value="RO">Rondônia</option>
-                  <option value="RR">Roraima</option>
-                  <option value="SC">Santa Catarina</option>
-                  <option value="SP">São Paulo</option>
-                  <option value="SE">Sergipe</option>
-                  <option value="TO">Tocantins</option>
-                </select>
-            </div>
-            </form>
+            <input type="number" class="form-control" id="qtdInicial" placeholder="Exemplo : 1" style="background:#FAFAFA;">
           </div>
+        </div>
+
+        <div class="col-md-2">
+           <div class="form-group">
+            <label for="formGroupExampleInput">Quantidade final</label>
+            <input type="number" class="form-control" id="qtdFinal" placeholder="Exemplo: 455" style="background:#FAFAFA;">
+        </div>
+        </div>
+
+          <div id="deputados"></div>
 
         </div>
         <div class="row"style="margin-bottom: 30px;">
-          <div class="col-md-5"></div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <input type="number" class="form-control" id="valorInicial" placeholder="Valor inicial" style="background:#FAFAFA;">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+           <div class="form-group">
+            <input type="number" class="form-control" id="valorFinal" placeholder="Valor final" style="background:#FAFAFA;">
+        </div>
+        </div>
             <div class="col-md-1"> 
               <a class="btn btn-danger" id="buscar">BUSCAR</a>
             </div>
           </div>
-          <div id="lista">
+        <div id="lista">
 
         </div>
-
         
+        </section>
     </div>
     
   </body>

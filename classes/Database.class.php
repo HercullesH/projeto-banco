@@ -5,7 +5,7 @@ class Db{
 	private $host = "localhost";
 	private $usuario = "root";
 	private $senha ="";
-	private $database ="teste";
+	private $database ="mydb";
 
 
 	public function getHost(){
